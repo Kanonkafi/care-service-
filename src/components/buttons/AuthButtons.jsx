@@ -9,7 +9,7 @@ const AuthButtons = () => {
 
   if (status === "authenticated") {
     return (
-      <button onClick={() => signOut()} className="btn btn-primary btn-sm btn-outline">
+      <button onClick={() => signOut({ callbackUrl: "/", redirect: true })} className="btn btn-primary btn-sm btn-outline">
         Logout
       </button>
     );

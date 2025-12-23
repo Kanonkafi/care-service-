@@ -4,7 +4,7 @@ import { collections, dbConnect } from "@/lib/dbconnect";
 import { ObjectId } from "mongodb";
 import { revalidatePath } from "next/cache";
 
-// ১. সব সার্ভিস আনার ফাংশন (Caching সহ)
+// ১. সব সার্ভিস আনার ফাংশন (Caching সহ)    
 export const getAllServices = async () => {
   try {
     const services = await dbConnect(collections.SERVICES).find({}).sort({ _id: -1 }).toArray();
@@ -43,9 +43,9 @@ export const getServiceById = async (id) => {
 };
 
 /**
- * বোনাস টিপস: 
+ *  
  * যখনই আপনি এডমিন প্যানেল থেকে নতুন সার্ভিস অ্যাড করবেন বা এডিট করবেন, 
- * তখন নিচের ফাংশনটি কল করবেন যাতে ইউজার সাথে সাথে নতুন ডাটা দেখতে পায়।
+ * তখন নিচের ফাংশনটি কল করবে যাতে ইউজার সাথে সাথে নতুন ডাটা দেখতে পায়।
  */
 export const refreshServiceCache = async () => {
     revalidatePath("/services");

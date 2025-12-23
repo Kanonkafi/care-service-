@@ -8,7 +8,8 @@ import { getServerSession } from "next-auth"; // সেশন এর জন্�
 //import { authOptions } from "@/app/api/auth/[...nextauth]/route"; 
 import { authOptions } from "@/lib/authOptions";
 import { getMyBookings } from "@/actions/server/booking"; 
-
+// এটি যোগ করুন যাতে পেজ রিফ্রেশ ছাড়াই সেশন পরিবর্তন টের পায়
+export const dynamic = "force-dynamic";
 
 const Navbar = async () => {
   // সার্ভার সাইড সেশন নেওয়া
@@ -26,7 +27,7 @@ const Navbar = async () => {
       <li><NavLink href={"/"}>Home</NavLink></li>
       <li><NavLink href={"/services"}>Services</NavLink></li>
       {/* শুধু লগইন থাকলেই My Bookings মেনু দেখাবে */}
-     {session?.user && <li><NavLink href={"/my-bookings"}>My Bookings</NavLink></li>}
+      {session?.user && <li><NavLink href={"/my-bookings"}>My Bookings</NavLink></li>}
       {/*<li><NavLink href={"/blog"}>Blog</NavLink></li> */}
       {/* <li><NavLink href={"/contact"}>Contact</NavLink></li> */}
      
