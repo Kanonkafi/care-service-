@@ -40,7 +40,7 @@ export const updatePaymentStatus = async (id, transactionId) => {
   }
 };
 
-// ৩. অ্যাডমিন প্যানেল থেকে স্ট্যাটাস আপডেট করার নতুন ফাংশন (এটি যোগ করা হয়েছে)
+// ৩. অ্যাডমিন প্যানেল থেকে স্ট্যাটাস আপডেট করার নতুন ফাংশন 
 export const updateBookingStatus = async (id, newStatus) => {
   try {
     const result = await dbConnect(collections.CART).updateOne(

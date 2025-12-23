@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+//import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({ children }) {
   const session = await getServerSession(authOptions);
 
   // --- নিরাপত্তা: অ্যাডমিন ছাড়া অন্য কেউ ঢুকতে পারবে না ---
-  // আপনার ইমেইলটা এখানে বসান (টেস্টিং এর জন্য)
+  // Amer ইমেইলটা এখানে বসাLAm (টেস্টিং এর জন্য)
   const isAdmin = session?.user?.email === "admin@gmail.com"; // এখানে আপনার আসল ইমেইল দিন
 
   if (!isAdmin) {

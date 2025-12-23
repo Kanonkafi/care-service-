@@ -5,9 +5,11 @@ import NavLink from "../buttons/NavLink";
 import { FiShoppingCart } from "react-icons/fi"; 
 import AuthButtons from "../buttons/AuthButtons"; 
 import { getServerSession } from "next-auth"; // সেশন এর জন্য
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"; 
+//import { authOptions } from "@/app/api/auth/[...nextauth]/route"; 
+import { authOptions } from "@/lib/authOptions";
 import { getMyBookings } from "@/actions/server/booking"; 
-
+// এটি যোগ করুন যাতে পেজ রিফ্রেশ ছাড়াই সেশন পরিবর্তন টের পায়
+export const dynamic = "force-dynamic";
 
 const Navbar = async () => {
   // সার্ভার সাইড সেশন নেওয়া

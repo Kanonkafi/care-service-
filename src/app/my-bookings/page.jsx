@@ -1,6 +1,7 @@
 import React from 'react';
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+//import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { getMyBookings } from '@/actions/server/booking';
 import BookingTable from '@/components/my-bookings/BookingTable';
 
