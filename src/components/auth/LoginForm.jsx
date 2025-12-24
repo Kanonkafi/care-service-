@@ -33,7 +33,8 @@ const LoginForm = () => {
       );
     } else {
       Swal.fire("success", "Welcome to care Service", "success");
-      router.push(callback);
+     // router.push(callback);
+     window.location.replace(callback);
     }
   };
 
